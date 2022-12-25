@@ -87,19 +87,25 @@ let startenemy = [[[34,10],0,[34,10]], [[34,11],50,[34,11]] ];
 let startmovecooldown = 100;
 let spawnrate = 15000;
 
-let movesound = [new Audio("grass0.wav"),new Audio("grass1.wav"),new Audio("grass2.wav"),new Audio("grass3.wav")]
-let nomovesound = [new Audio("nope0.wav"),new Audio("nope1.wav")]
-let deadsound = new Audio("death.wav");
-let musicsound = new Audio("music.wav")
+let movesound = [new Audio("./assets/sounds/grass0.wav"),
+                  new Audio("./assets/sounds/grass1.wav"),
+                  new Audio("./assets/sounds/grass2.wav"),
+                  new Audio("./assets/sounds/grass3.wav")]
+
+let nomovesound = [new Audio("./assets/sounds/nope0.wav"),
+                  new Audio("./assets/sounds/nope1.wav")]
+
+let deadsound = new Audio("./assets/sounds/death.wav");
+let musicsound = new Audio("./assets/sounds/music.wav")
 
 let backgroundimage = document.createElement("img");
-backgroundimage.src = "background.png";
+backgroundimage.src = "./assets/images/background.png";
 
 let playerimage = document.createElement("img");
-playerimage.src = "player.png";
+playerimage.src = "./assets/images/player.png";
 
 let enemyimage = document.createElement("img");
-enemyimage.src = "enemy.png"
+enemyimage.src = "./assets/images/enemy.png"
 
 let player = [...startplayer];
 let enemies = JSON.parse(JSON.stringify(startenemy));

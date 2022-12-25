@@ -31,7 +31,6 @@ function resumegame(){
 
 
 function pausemenu(){
-  console.log("tryna pause dat shit");
   if(currentvisible != "ingamemenu") return;
   onlyvisible("pausemenu");
   pausegame();

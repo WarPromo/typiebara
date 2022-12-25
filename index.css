@@ -1,0 +1,193 @@
+@font-face {
+  font-family: 'Gamefont';
+  src: url('./fonts/RubikVinyl-Regular.ttf');
+}
+
+body{
+  background: #e5ddbd;
+}
+
+#my-canvas{
+  position: absolute;
+  z-index: -2;
+}
+
+#root{
+  width: 900px;
+  height: 700px;
+  position: relative;
+  border: 5px solid black;
+  margin: auto;
+  box-shadow:0px 0px 0px 1px black inset;
+}
+
+#menu{
+  width: 900px;
+  height: 700px;
+  position: absolute;
+  transition: all 0.2s;
+  opacity: 0;
+  background: #ffffff59;
+}
+
+#menu > h1{
+  text-align: center;
+  font-size:80px;
+  font-family: "Gamefont";
+  transition: all 1s;
+  text-shadow: 1px 1px 2px black;
+  margin-bottom: 0px;
+}
+
+#menu > h1:hover{
+  text-align: center;
+  letter-spacing: 20px;
+  transition: all 1s;
+  text-shadow: 1px 1px 5px black;
+
+}
+
+#menu > p{
+  text-align:center;
+  font-family: "Helvetica";
+  font-weight:800;
+  margin-top: -10px;
+  margin-bottom: 40px;
+}
+
+.menubutton{
+  display:flex;
+  width: 200px;
+  height: 50px;
+  background: white;
+  border: 5px solid black;
+  border-radius: 15px;
+  opacity: 0.5;
+  margin: auto;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+  justify-content: center;
+  align-items: center;
+  font-family:"Gamefont";
+  font-size: 40px;
+}
+
+.menubutton > p{
+  align-items: center;
+}
+
+.menubutton:hover{
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+#ingamemenu{
+  position: absolute;
+  display: flex;
+  justify-content:flex-end;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.ingamebutton{
+  width: 50px;
+  height: 50px;
+  background: white;
+  border: 5px solid black;
+  border-radius: 15px;
+  opacity: 0.5;
+  transition: all 0.2s;
+  font-family:"Gamefont";
+  font-size: 40px;
+  position:relative;
+  margin: 5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.ingamebutton:hover{
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+#deadmenu{
+  width: 900px;
+  height: 700px;
+  position: absolute;
+  transition: all 0.2s;
+  opacity: 0;
+}
+
+#deadmenubackground{
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: red;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+#deadmenu > h1{
+  text-align: center;
+}
+
+.deadbuttons{
+  position: relative;
+  top: 40%;
+}
+
+.deadbutton{
+  display:flex;
+  width: 200px;
+  height: 50px;
+  background: white;
+  border: 5px solid black;
+  border-radius: 15px;
+  opacity: 0.5;
+  margin: auto;
+  margin-bottom: 20px;
+  transition: all 1;
+  justify-content: center;
+  align-items: center;
+  font-family:"Gamefont";
+  font-size: 40px;
+}
+
+.deadbutton > p{
+  align-items: center;
+}
+
+.deadbutton:hover{
+  opacity: 1;
+}
+
+#tutorialmenu{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  filter: Alpha(opacity=100);
+  transition: opacity 1s;
+  background: #ffffff59;
+
+}
+
+#tutorialmenu > .menubutton{
+  margin-top: 200px;
+}
+
+#tutorialmenu > img{
+  display: flex;
+  position: relative;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  opacity: 0.9;
+}
+
+[hidden]{
+  display:none !important;
+}

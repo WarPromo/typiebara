@@ -41,6 +41,7 @@
 
         <div class="ingamebutton" onclick="restartgame()">↻</div>
         <div class="ingamebutton" onclick="mainmenu()">⌂</div>
+        <div class="ingamebutton" onclick="pausemenu()">II</div>
 
       </div>
 
@@ -57,6 +58,15 @@
         </div>
 
         <div id="deadmenubackground"></div>
+      </div>
+
+      <div id = "pausemenu" hidden>
+        <div class="pausebuttons">
+          <div class="menubutton" onclick="resumegame()">Resume</div>
+          <div class="menubutton" onclick="restartgame()">Restart</div>
+          <div class="menubutton" onclick="mainmenu()">Quit</div>
+        </div>
+
       </div>
 
       <canvas id="my-canvas" width="900px" height="700px"></canvas>

@@ -3,10 +3,12 @@ let canvas,context
 let mouseisdown = false;
 let mousepos = {x:0, y:0};
 
+
 function start(){
 
   document.addEventListener('keydown', keydown);
   document.addEventListener('contextmenu', event => event.preventDefault());
+  document.addEventListener("visibilitychange", pausemenu);
 
   canvas = document.getElementById("my-canvas")
   canvas.onmousemove = mousemove;

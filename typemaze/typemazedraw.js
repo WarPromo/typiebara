@@ -19,6 +19,12 @@ function showgame(){
 
 }
 
+function unpausegame(){
+  gamepaused = false;
+  musicsound.play();
+  lasttime = new Date().getTime();
+}
+
 function startgame(){
 
   init();
@@ -218,7 +224,7 @@ function drawtimer(){
   if(!gamepaused){
     let time = new Date().getTime();
     let oldtime = currenttime[0];
-    currenttime[0] += time - currenttime[1]
+    currenttime[0] += globaldeltatime;
     currenttime[1] = time;
 
     if(oldtime % spawnrate > currenttime[0] % spawnrate){
@@ -254,13 +260,17 @@ function spawnenemy(){
 
   let coord = [Math.floor( Math.random() * route[0].length ), Math.floor( Math.random() * route.length )];
 
+  if(route[coord[1]][coord[0]] == 1){
+    return spawnenemy();
+  }
+
   enemies.push([[...coord], Math.random() * movecooldown, [...coord]]);
 
 }
 
 function drawenemy(enemy){
 
-  let dt = new Date().getTime() - currenttime[1];
+  let dt = globaldeltatime;
 
   if(!gamepaused){
     enemy[1]-=dt*60/1000;
@@ -276,12 +286,11 @@ function drawenemy(enemy){
       enemy[1] = movecooldown;
 
     }
+
+    enemy[2][0] = linearlerp(enemy[2][0], enemy[0][0], moveease * globaldeltatime)
+    enemy[2][1] = linearlerp(enemy[2][1], enemy[0][1], moveease * globaldeltatime)
   }
 
-
-
-  enemy[2][0] = linearlerp(enemy[2][0], enemy[0][0], moveease * globaldeltatime)
-  enemy[2][1] = linearlerp(enemy[2][1], enemy[0][1], moveease * globaldeltatime)
 
   let mc = getXY(enemy[2][0], enemy[2][1], player[2], player[3])
   let mcx = mc[0];

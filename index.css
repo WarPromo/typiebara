@@ -189,6 +189,21 @@ body{
   opacity: 0.9;
 }
 
+#pausemenu{
+  width: 900px;
+  height: 700px;
+  position: absolute;
+  transition: all 0.2s;
+  opacity: 0;
+  background: #ffffff59;
+}
+
+
+.pausebuttons{
+  position: relative;
+  top: 40%;
+}
+
 [hidden]{
   display:none !important;
 }

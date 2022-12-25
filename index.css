@@ -10,6 +10,7 @@ body{
 #my-canvas{
   position: absolute;
   z-index: -2;
+  -webkit-transform: translateZ(0);
 }
 
 #root{

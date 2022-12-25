@@ -46,9 +46,9 @@ function pausegame(){
 
 }
 
-
-function draw(){
-
+let globaldeltatime = 0;
+function draw(deltatime){
+  globaldeltatime = deltatime;
   if(!gamestarted) return;
 
   if(mouseisdown){
@@ -181,8 +181,8 @@ function draw(){
   }
 
 
-  player[2] = player[2] + (player[0] - player[2]) * moveease;
-  player[3] = player[3] + (player[1] - player[3]) * moveease;
+  player[2] = linearlerp(player[2],player[0],moveease * deltatime);
+  player[3] = linearlerp(player[3],player[1],moveease * deltatime);
 
   let mc =  getXY(player[2],player[3],player[2],player[3]);
   let mcx = mc[0];
@@ -202,13 +202,14 @@ function draw(){
   if(!gamepaused){
     movecooldown = startmovecooldown - movecooldownrate*currenttime[0]*60/1000
     //movecooldown -= movecooldownrate;
-    console.log(movecooldown);
   }
 
   drawtimer();
 
 
 }
+
+
 
 function drawtimer(){
 
@@ -279,8 +280,8 @@ function drawenemy(enemy){
 
 
 
-  enemy[2][0] = enemy[2][0] + (enemy[0][0] - enemy[2][0]) * moveease;
-  enemy[2][1] = enemy[2][1] + (enemy[0][1] - enemy[2][1]) * moveease;
+  enemy[2][0] = linearlerp(enemy[2][0], enemy[0][0], moveease * globaldeltatime)
+  enemy[2][1] = linearlerp(enemy[2][1], enemy[0][1], moveease * globaldeltatime)
 
   let mc = getXY(enemy[2][0], enemy[2][1], player[2], player[3])
   let mcx = mc[0];
@@ -297,8 +298,6 @@ function drawenemy(enemy){
     deadsound.cloneNode(true).play();
     diedmenu();
 
-
-    console.log("dieeed");
 
   }
 

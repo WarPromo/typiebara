@@ -36,7 +36,9 @@ function getNextSpot(sx, sy, ex, ey, enemies){
         if(been[y][x] != -1 && route[y][x] != 1){
 
           let newpath = JSON.parse(JSON.stringify(spot));
-          newpath.push([x,y]);
+          if(newpath.length < 2) newpath.push([x,y]);
+          else newpath[2] = [x,y];
+
           list.push(newpath);
           been[y][x] = -1;
 

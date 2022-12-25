@@ -20,7 +20,20 @@ function start(){
 
   showgame();
 
-  setInterval(draw, 1000/60);
+  window.requestAnimationFrame(loop);
+
+  //setInterval(draw, 1000/60);
+}
+
+let lasttime = new Date().getTime();
+
+function loop(time){
+
+  let newtime = new Date().getTime();
+  draw(newtime - lasttime);
+  lasttime = newtime;
+  window.requestAnimationFrame(loop);
+
 }
 
 

@@ -77,7 +77,7 @@ let fontsize = 14;
 
 
 
-let moveease = 0.1;
+let moveease = 0.002;
 
 let movecooldownrate = 0.013;
 

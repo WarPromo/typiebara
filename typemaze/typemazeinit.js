@@ -122,6 +122,9 @@ let baseword = {
 }
 
 function init(){
+
+  playertyped = "";
+
   for(var i = 0; i < movesound.length; i++) movesound[i].loop = false;
   for(var i = 0; i < nomovesound.length; i++) nomovesound[i].loop = false;
   deadsound.loop = false;

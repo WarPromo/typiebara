@@ -21,7 +21,10 @@ function showgame(){
 
 function unpausegame(){
   gamepaused = false;
+
+  menumusicsound.pause();
   musicsound.play();
+
   lasttime = new Date().getTime();
 }
 
@@ -48,7 +51,13 @@ function stopgame(){
 function pausegame(){
 
   gamepaused = true;
+
   musicsound.pause();
+
+  menumusicsound.currentTime = 0;
+  menumusicsound.play();
+
+  console.log(menumusicsound);
 
 }
 

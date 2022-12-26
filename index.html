@@ -23,11 +23,6 @@
     <script src="./gui/menubuttons.js"></script>
 
     <div id="root">
-      <script>
-        function onlymain(){
-          onlyvisible("menu");
-        }
-      </script>
       <div id="menu">
 
         <h1>Typiebara</h1>
@@ -48,7 +43,10 @@
 
       <div id = "tutorialmenu">
         <div class ="menubutton" onclick="backmenu()">Back</div>
-        <img src="./assets/images/tutorial.png"></img>
+        <div id = "tutorial">
+          <img src="./assets/images/tutorial.gif"></img>
+          <p>To move to a square, type the word of that square, then press the spacebar. Make sure to avoid the crocodiles!</p>
+        </div>
 
       </div>
 

@@ -97,6 +97,9 @@ let nomovesound = [new Audio("./assets/sounds/nope0.wav"),
 
 let deadsound = new Audio("./assets/sounds/death.wav");
 let musicsound = new Audio("./assets/sounds/music.wav")
+let menumusicsound = new Audio("./assets/sounds/menumusic.wav")
+
+menumusicsound.volume = 0.025;
 
 let backgroundimage = document.createElement("img");
 backgroundimage.src = "./assets/images/background.png";

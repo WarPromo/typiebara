@@ -21,6 +21,7 @@ function start(){
   onlyvisible("menu");
 
   showgame();
+  pausegame();
 
   window.requestAnimationFrame(loop);
 

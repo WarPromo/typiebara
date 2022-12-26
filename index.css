@@ -180,13 +180,28 @@ body{
   margin-top: 200px;
 }
 
-#tutorialmenu > img{
-  display: flex;
+#tutorial > img{
   position: relative;
-  width: 50%;
-  height: 50%;
+  width: 80%;
   margin: auto;
-  opacity: 0.9;
+}
+
+#tutorial > p{
+  margin: 15px;
+  color: #342a2a;
+  font-family: system-ui;
+}
+
+#tutorial{
+  border: solid 7px #e3e9e2;
+  border-radius: 7px;
+}
+
+#tutorial{
+  width: 75%;
+  display: flex;
+  background: #ffffffc9;
+  margin:auto;
 }
 
 #pausemenu{

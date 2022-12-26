@@ -9,6 +9,7 @@ function menustartgame(){
   onlyvisible("ingamemenu");
 
   startgame();
+  unpausegame();
 }
 
 function mainmenu(){
@@ -45,6 +46,7 @@ function restartgame(){
 }
 
 function showtutorial(){
+  if(!menumusicsound.playing) menumusicsound.play();
   onlyvisible("tutorialmenu");
 }
 

@@ -9,15 +9,15 @@ function start(){
   document.addEventListener('keydown', keydown);
   document.addEventListener('contextmenu', event => event.preventDefault());
   document.addEventListener("visibilitychange", pausemenu);
+  document.addEventListener('mousemove', mousemove);
+  document.addEventListener('mousedown', mousedown);
+  document.addEventListener('mouseup', mouseup);
 
   canvas = document.getElementById("my-canvas")
-  canvas.onmousemove = mousemove;
-  canvas.onmousedown = mousedown;
-  canvas.onmouseup = mouseup;
 
   context = canvas.getContext('2d');
 
-
+  clickabletabbuttons();
   onlyvisible("menu");
 
   showgame();
@@ -41,8 +41,12 @@ function loop(time){
 
 
 function mousedown(e){
+
+  console.log('yes');
+
   if(e.button == 0) mouseisdown = true;
   if(e.button == 2){
+    console.log("here");
     moveplayer();
   }
 }

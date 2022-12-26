@@ -78,8 +78,12 @@ body{
 }
 
 .menubutton:hover{
-  opacity: 1;
+  opacity: 0.8;
   transition: all 0.2s;
+}
+
+.menubutton:focus{
+  opacity: 1
 }
 
 #ingamemenu{
@@ -182,7 +186,7 @@ body{
 
 #tutorial > img{
   position: relative;
-  width: 80%;
+  width: 70%;
   margin: auto;
 }
 
@@ -213,6 +217,30 @@ body{
   background: #ffffff59;
 }
 
+#mapmenu{
+  width: 900px;
+  height: 700px;
+  position: absolute;
+  display: flex;
+  opacity: 0;
+}
+
+#mapmenucontainer{
+  display: flex;
+  width: 100%;
+  position: relative;
+  bottom: 5%;
+}
+
+#mapbuttons{
+  position: relative;
+  top: 84%;
+  height: 0px;
+}
+
+.mapbutton{
+  margin-bottom: 5px;
+}
 
 .pausebuttons{
   position: relative;

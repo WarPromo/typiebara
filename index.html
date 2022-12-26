@@ -19,6 +19,7 @@
     <script src="./typemaze/typemazedraw.js"></script>
     <script src="./typemaze/typemazeinit.js"></script>
     <script src="./typemaze/typemazepathfind.js"></script>
+    <script src="./typemaze/typemazemaps.js"></script>
 
     <script src="./gui/menubuttons.js"></script>
 
@@ -28,32 +29,46 @@
         <h1>Typiebara</h1>
         <p>By WarPromo</p>
 
-        <div class="menubutton" onclick="menustartgame()">Start</div>
-        <div class="menubutton" onclick="showtutorial()">Tutorial</div>
+        <div class="menubutton tabbutton" onclick="mapmenu()">Maps</div>
+        <div class="menubutton tabbutton" onclick="showtutorial()">Tutorial</div>
 
       </div>
 
+      <div id="mapmenu">
+        <div id = "mapmenucontainer">
+          <div class="menubutton tabbutton" onclick="decrementindex()">←</div>
+          <div id = "mapbuttons">
+            <div class="menubutton mapbutton tabbutton" onclick="menustartgame()">Start</div>
+            <div class ="menubutton mapbutton tabbutton" onclick="backmenu()">Back</div>
+          </div>
+          <div class="menubutton tabbutton" onclick="incrementindex()">→</div>
+        </div>
+
+
+      </div>
+
+
       <div id = "ingamemenu">
 
-        <div class="ingamebutton" onclick="restartgame()">↻</div>
-        <div class="ingamebutton" onclick="mainmenu()">⌂</div>
-        <div class="ingamebutton" onclick="pausemenu()">II</div>
+        <div class="ingamebutton tabbutton" onclick="restartgame()">↻</div>
+        <div class="ingamebutton tabbutton" onclick="mainmenu()">⌂</div>
+        <div class="ingamebutton tabbutton" onclick="pausemenu()">II</div>
 
       </div>
 
       <div id = "tutorialmenu">
-        <div class ="menubutton" onclick="backmenu()">Back</div>
+        <div class ="menubutton tabbutton" onclick="backmenu()">Back</div>
         <div id = "tutorial">
           <img src="./assets/images/tutorial.gif"></img>
-          <p>To move to a square, type the word of that square, then press the spacebar. Make sure to avoid the crocodiles!</p>
+          <p>To move to a square, type the word of that square, then press <b>space</b>. Make sure to avoid the enemies! <br><br>Tip: You can use <b>tab</b> to navigate to a button, and <b>enter</b> to press it</p>
         </div>
 
       </div>
 
       <div id = "deadmenu">
         <div class="deadbuttons">
-          <div class="deadbutton" onclick="restartgame()">Restart</div>
-          <div class="deadbutton" onclick="mainmenu()">Quit</div>
+          <div class="menubutton tabbutton restartbutton" onclick="restartgame()">Restart</div>
+          <div class="menubutton tabbutton" onclick="mainmenu()">Quit</div>
         </div>
 
         <div id="deadmenubackground"></div>
@@ -61,9 +76,9 @@
 
       <div id = "pausemenu" hidden>
         <div class="pausebuttons">
-          <div class="menubutton" onclick="resumegame()">Resume</div>
-          <div class="menubutton" onclick="restartgame()">Restart</div>
-          <div class="menubutton" onclick="mainmenu()">Quit</div>
+          <div class="menubutton tabbutton" onclick="resumegame()">Resume</div>
+          <div class="menubutton tabbutton" onclick="restartgame()">Restart</div>
+          <div class="menubutton tabbutton" onclick="mainmenu()">Quit</div>
         </div>
 
       </div>

@@ -1,10 +1,35 @@
 
 
 
-let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu"];
+let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu","mapmenu"];
 let currentvisible = "menu";
 
+
+
+
+function clickabletabbuttons(){
+  let tabbuttons = document.getElementsByClassName("tabbutton");
+  for(var i = 0; i < tabbuttons.length; i++) makeclickable(tabbuttons[i]);
+}
+
+function makeclickable(button){
+
+  button.tabIndex = "0";
+
+
+  button.onkeydown = enterclick;
+
+
+}
+
+function enterclick(event){
+  if(event.key == "Enter") event.composedPath()[0].click();
+}
+
+
 function menustartgame(){
+
+  hidetitle = true;
 
   onlyvisible("ingamemenu");
 
@@ -15,6 +40,11 @@ function menustartgame(){
 function mainmenu(){
 
   hidetimer = true;
+  hidetitle = true;
+
+
+  if(!menumusicsound.playing) menumusicsound.play();
+
   onlyvisible("menu")
 
   showgame();
@@ -22,9 +52,34 @@ function mainmenu(){
 
 }
 
+function decrementindex(){
+  mapindex--;
+  showgame();
+}
+
+function incrementindex(){
+  mapindex++;
+  showgame();
+}
+
+function mapmenu(){
+
+  hidetimer = true;
+  hidetitle = false;
+
+  if(!menumusicsound.playing) menumusicsound.play();
+
+  onlyvisible("mapmenu");
+
+}
+
 
 
 function resumegame(){
+
+  hidetimer = false;
+  hidetitle = true;
+
   onlyvisible("ingamemenu");
   unpausegame();
 }
@@ -33,11 +88,18 @@ function resumegame(){
 
 function pausemenu(){
   if(currentvisible != "ingamemenu") return;
+
+  hidetimer = false;
+  hidetitle = true;
+
   onlyvisible("pausemenu");
   pausegame();
 }
 
 function restartgame(){
+
+  hidetimer = false;
+  hidetitle = true;
 
   onlyvisible("ingamemenu");
   showgame();
@@ -46,19 +108,34 @@ function restartgame(){
 }
 
 function showtutorial(){
+
+  hidetitle = true;
+  hidetimer = true;
+
   if(!menumusicsound.playing) menumusicsound.play();
   onlyvisible("tutorialmenu");
 }
 
 function diedmenu(){
 
+  hidetitle = true;
+  hidetimer = false;
+
   onlyvisible("deadmenu");
+
+  let restartbutton = document.getElementsByClassName("restartbutton")[0]
+  restartbutton.focus();
+
   gamepaused = true;
   musicsound.pause();
 
 }
 
 function backmenu(){
+
+  hidetitle = true;
+  hidetimer = true;
+
   onlyvisible("menu")
 }
 

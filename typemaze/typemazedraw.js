@@ -62,6 +62,7 @@ function pausegame(){
 }
 
 let globaldeltatime = 0;
+
 function draw(deltatime){
   globaldeltatime = deltatime;
   if(!gamestarted) return;
@@ -220,11 +221,28 @@ function draw(deltatime){
   }
 
   drawtimer();
+  drawtitle();
 
 
 }
 
 
+function drawtitle(){
+
+  if(hidetitle) return;
+
+  let coord = getXY(player[2],player[3],player[2],player[3]);
+
+  coord[1] = 100;
+
+  context.fillStyle = "white";
+  context.font = "70px Arial";
+  context.strokeStyle = "black";
+  context.lineWidth = 2;
+  context.fillText(maptitle, coord[0], coord[1]);
+  context.strokeText(maptitle, coord[0], coord[1]);
+
+}
 
 function drawtimer(){
 
@@ -313,7 +331,9 @@ function drawenemy(enemy){
 
   if(distance < deathdistance && !gamepaused){
 
-    deadsound.cloneNode(true).play();
+    let deadsoundclone = deadsound.cloneNode(true)
+    deadsoundclone.volume = deadsound.volume;
+    deadsoundclone.play();
     diedmenu();
 
 

@@ -75,8 +75,6 @@ function init(){
   if(mapindex < 0) mapindex = maplist.length + mapindex;
   mapindex = mapindex % maplist.length;
 
-  console.log(mapindex);
-
   playertyped = "";
   for(var i = 0; i < movesound.length; i++) movesound[i].loop = false;
   for(var i = 0; i < nomovesound.length; i++) nomovesound[i].loop = false;

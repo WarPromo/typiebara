@@ -54,16 +54,19 @@ function pausegame(){
 
   musicsound.pause();
 
-  menumusicsound.currentTime = 0;
-  menumusicsound.play();
+  if(menumusicsound.paused){
+    menumusicsound.currentTime = 0;
+    menumusicsound.play();
+  }
 
-  console.log(menumusicsound);
+
 
 }
 
 let globaldeltatime = 0;
 
 function draw(deltatime){
+
   globaldeltatime = deltatime;
   if(!gamestarted) return;
 
@@ -206,9 +209,6 @@ function draw(deltatime){
   let mc =  getXY(player[2],player[3],player[2],player[3]);
   let mcx = mc[0];
   let mcy = mc[1];
-
-
-  console.log(player[4]);
 
   context.scale(player[4],1);
   context.drawImage(playerimage, player[4]*(mcx - imagesize / 2), mcy - imagesize / 2, player[4]*imagesize, imagesize);

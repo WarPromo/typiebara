@@ -43,7 +43,7 @@ function mainmenu(){
   hidetitle = true;
 
 
-  if(!menumusicsound.playing) menumusicsound.play();
+  if(menumusicsound.paused) menumusicsound.play();
 
   onlyvisible("menu")
 
@@ -67,7 +67,7 @@ function mapmenu(){
   hidetimer = true;
   hidetitle = false;
 
-  if(!menumusicsound.playing) menumusicsound.play();
+  if(menumusicsound.paused) menumusicsound.play();
 
   onlyvisible("mapmenu");
 
@@ -112,7 +112,7 @@ function showtutorial(){
   hidetitle = true;
   hidetimer = true;
 
-  if(!menumusicsound.playing) menumusicsound.play();
+  if(menumusicsound.paused) menumusicsound.play();
   onlyvisible("tutorialmenu");
 }
 

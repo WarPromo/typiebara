@@ -3,5 +3,5 @@
 <h1>In Typiebara, you type words to move around.</h1> 
 <h1>At the same time, you must avoid obstacles and enemies.</h1> 
 <h1>The game becomes harder the longer you last.</h1> 
-<p>My records: <br>  <b>Crocodile Overload</b>: 1:37<br>  <b>Twin Sky Chase</b>: 1:07<br>  <b>Fresh Tasty Capybara</b>: 0:40<br>
+<h1>My best time is 1:42, can you beat it?</h1>
 <h1><b>Made using HTML5 Canvas + Javascript + CSS</b></h1>

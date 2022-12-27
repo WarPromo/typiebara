@@ -42,11 +42,8 @@ function loop(time){
 
 function mousedown(e){
 
-  console.log('yes');
-
   if(e.button == 0) mouseisdown = true;
   if(e.button == 2){
-    console.log("here");
     moveplayer();
   }
 }

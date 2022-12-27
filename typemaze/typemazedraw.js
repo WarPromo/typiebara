@@ -218,6 +218,15 @@ function draw(deltatime){
   context.font = "20px Arial";
   context.fillText(playertyped,mcx,mcy+5);
 
+  if(highlightmode || ctrlkey){
+    let size = context.measureText(playertyped);
+
+    context.fillStyle = "rgba(0,0,0,0.3)"
+    if(highlightmode) context.fillStyle = "rgba(0,0,255,0.3)"
+    context.fillRect(mcx - size.width/2 - 2, mcy - 10 - 3, size.width + 4, 20 + 6)
+  }
+
+
   for(var i = 0; i < enemies.length; i++){
 
     drawenemy(enemies[i])

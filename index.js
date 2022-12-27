@@ -2,11 +2,14 @@
 let canvas,context
 let mouseisdown = false;
 let mousepos = {x:0, y:0};
-
+let ctrlkey = false;
+let akey = false;
+let highlightmode = false;
 
 function start(){
 
   document.addEventListener('keydown', keydown);
+  document.addEventListener('keyup', keyup);
   document.addEventListener('contextmenu', event => event.preventDefault());
   document.addEventListener("visibilitychange", pausemenu);
   document.addEventListener('mousemove', mousemove);
@@ -72,23 +75,54 @@ function keydown(e){
   const charList = 'abcdefghijklmnopqrstuvwxyz';
 
   if(charList.indexOf(key) == -1){
-
+    console.log(key);
     if(key == "backspace"){
 
       playertyped = playertyped.substring(0, playertyped.length-1);
+      if(ctrlkey || highlightmode) playertyped = "";
+      if(highlightmode) highlightmode = false;
 
     }
+    if(key == "control") ctrlkey = true;
     if(key == " "){
 
       pressedspace = true;
 
     }
 
+
   }
   else{
-    playertyped += key;
+
+
+    if(ctrlkey){
+
+      if(key == "a") highlightmode = true;
+
+    }
+    else{
+
+      if(highlightmode) {
+        playertyped = "";
+        highlightmode = false;
+      }
+
+      playertyped += key;
+    }
+
+
   }
 
+
+
+}
+
+function keyup(e){
+
+  let key = e.key.toLowerCase();
+
+  if(key == "control") ctrlkey = false;
+  if(key == "a") akey = false;
 
 
 }

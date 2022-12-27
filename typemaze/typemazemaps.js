@@ -132,7 +132,7 @@ let farmmap = {
   name: "Fresh Tasty Capybara",
   player: [11, 10, 11, 10],
   enemy: [ [[16,8],0,[16,8]] ],
-  movecooldown: 35,
+  movecooldown: 45,
   movecooldownrate: 0.008,
   spawnrate: 9999999999999999,
   route: [

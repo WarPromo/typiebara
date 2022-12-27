@@ -1,7 +1,3 @@
-
-
-
-
 let devmode = false;
 
 function moveplayer(){
@@ -36,4 +32,13 @@ function sandbox(){
 
   initwords();
 
+}
+
+function copyroute(){
+  let string = "[\n";
+  for(var y = 0; y < route.length; y++){
+    string += JSON.stringify(route[y]) + `,\n`
+  }
+  string += "\n]"
+  copy(string)
 }

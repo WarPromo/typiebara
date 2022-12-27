@@ -9,7 +9,22 @@ let currentvisible = "menu";
 
 function clickabletabbuttons(){
   let tabbuttons = document.getElementsByClassName("tabbutton");
-  for(var i = 0; i < tabbuttons.length; i++) makeclickable(tabbuttons[i]);
+  for(var i = 0; i < tabbuttons.length; i++) {
+    makeclickable(tabbuttons[i]);
+    makeUnselectable(tabbuttons[i]);
+    tabbuttons[i].classList.add("unselectable")
+  }
+}
+
+function makeUnselectable(node) {
+    if (node.nodeType == 1) {
+        node.setAttribute("unselectable", "on");
+    }
+    var child = node.firstChild;
+    while (child) {
+        makeUnselectable(child);
+        child = child.nextSibling;
+    }
 }
 
 function makeclickable(button){

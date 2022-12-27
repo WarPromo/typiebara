@@ -200,11 +200,20 @@ function draw(deltatime){
   player[2] = linearlerp(player[2],player[0],moveease * deltatime);
   player[3] = linearlerp(player[3],player[1],moveease * deltatime);
 
+  if(player[2] < player[0]) player[4] = 1;
+  if(player[2] > player[0]) player[4] = -1;
+
   let mc =  getXY(player[2],player[3],player[2],player[3]);
   let mcx = mc[0];
   let mcy = mc[1];
 
-  context.drawImage(playerimage, mcx - imagesize / 2, mcy - imagesize / 2, imagesize, imagesize);
+
+  console.log(player[4]);
+
+  context.scale(player[4],1);
+  context.drawImage(playerimage, player[4]*(mcx - imagesize / 2), mcy - imagesize / 2, player[4]*imagesize, imagesize);
+  context.setTransform(1, 0, 0, 1, 0, 0);
+
   context.fillStyle = "white";
   context.font = "20px Arial";
   context.fillText(playertyped,mcx,mcy+5);
@@ -316,6 +325,11 @@ function drawenemy(enemy){
 
     enemy[2][0] = linearlerp(enemy[2][0], enemy[0][0], moveease * globaldeltatime)
     enemy[2][1] = linearlerp(enemy[2][1], enemy[0][1], moveease * globaldeltatime)
+
+    if(enemy[2][0] < enemy[0][0]) enemy[3] = 1
+    if(enemy[2][0] > enemy[0][0]) enemy[3] = -1
+
+
   }
 
 
@@ -323,7 +337,10 @@ function drawenemy(enemy){
   let mcx = mc[0];
   let mcy = mc[1];
 
-  context.drawImage(enemyimage, mcx - imagesize / 2, mcy - imagesize / 2, imagesize, imagesize);
+  context.scale(enemy[3],1);
+  context.drawImage(enemyimage, enemy[3]*(mcx - imagesize / 2), mcy - imagesize / 2, enemy[3]*imagesize, imagesize);
+  context.setTransform(1, 0, 0, 1, 0, 0);
+
 
   let deathdistance = 0.5;
 

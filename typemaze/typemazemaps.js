@@ -1,7 +1,7 @@
 let parkmap = {
   name: "Crocodile Overload",
-  player: [34,14,34,14],
-  enemy: [[[34,10],0,[34,10]], [[34,11],50,[34,11]] ],
+  player: [34,14,34,14,1],
+  enemy: [[[34,10],0,[34,10],1], [[34,11],50,[34,11],1] ],
   movecooldown: 100,
   movecooldownrate: 0.013,
   spawnrate: 15000,
@@ -65,8 +65,8 @@ let parkmap = {
 
 let skymap = {
   name: "Twin Sky Chase",
-  player: [14,11,14,11],
-  enemy: [ [[13,8],0,[13,8]], [[26,23],0,[26,23]] ],
+  player: [14,11,14,11,1],
+  enemy: [ [[13,8],0,[13,8],1], [[26,23],0,[26,23],1] ],
   movecooldown: 60,
   movecooldownrate: 0.008,
   spawnrate: 9999999999999999,
@@ -130,8 +130,8 @@ let skymap = {
 
 let farmmap = {
   name: "Fresh Tasty Capybara",
-  player: [11, 10, 11, 10],
-  enemy: [ [[17,6],45,[17,6]]  ],
+  player: [11, 10, 11, 10, 1],
+  enemy: [ [[17,6],45,[17,6], 1]  ],
   movecooldown: 50,
   movecooldownrate: 0.008,
   spawnrate: 9999999999999999,

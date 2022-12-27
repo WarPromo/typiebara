@@ -99,7 +99,7 @@ function draw(deltatime){
 
       let base = words[dy + player[1]][dx + player[0]];
 
-      if(Math.abs(dy) + Math.abs(dx) == 1){
+      if(Math.abs(dy) + Math.abs(dx) >= 1 && Math.abs(dx) < 2 && Math.abs(dy) < 2){
         base.squaresize = base.squaresize + (squaresize+squareplus - base.squaresize) * sizeease;
         base.fontsize = base.fontsize + (fontsize+fontplus - base.fontsize) * fontease;
 
@@ -122,9 +122,6 @@ function draw(deltatime){
       for(let dx = -1; dx <= 1; dx++){
 
         if(dy == 0 && dx == 0){
-          continue;
-        }
-        if(Math.abs(dy) + Math.abs(dx) == 2){
           continue;
         }
 

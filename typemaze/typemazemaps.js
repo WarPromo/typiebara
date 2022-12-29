@@ -173,7 +173,7 @@ let monkeymap = {
   name: "The Monkey.",
   player: [19,18,19,18,1],
   enemy: [ [[18,21],45,[18,21], 1]],
-  movecooldown: 40,
+  movecooldown: 55,
   movecooldownrate: 0.005,
   spawnrate: 150000000000,
   route: [

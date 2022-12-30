@@ -33,7 +33,12 @@
 
         <div class="menubutton tabbutton" onclick="mapmenu()">Maps</div>
         <div class="menubutton tabbutton" onclick="showtutorial()">Tutorial</div>
-        <div class="menubutton tabbutton" onclick="showbonus()">Bonus</div>
+        <div class="menubutton tabbutton" onclick="showbonusmenu(event)">Bonus</div>
+        <div id="bonusbuttons">
+          <div class="menubutton tabbutton" onclick="showbonus('English 200')">English 200</div>
+          <div class="menubutton tabbutton" onclick="showbonus('English 1000')">English 1000</div>
+          <div class="menubutton tabbutton" onclick="showbonus('English 5000')">English 5000</div>
+        </div>
 
       </div>
 
@@ -98,6 +103,7 @@
         </div>
 
       </div>
+
 
       <canvas id="my-canvas" width="900px" height="700px"></canvas>
 

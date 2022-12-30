@@ -1,7 +1,7 @@
 
 
 
-let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu","mapmenu", "bonusingamemenu"];
+let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu","mapmenu", "bonusingamemenu", "bonusbuttons"];
 let currentvisible = "menu";
 
 
@@ -55,10 +55,28 @@ function menustartgame(){
   unpausegame();
 }
 
-function showbonus(){
+function showbonusmenu(event){
+  let buttons = document.getElementById("bonusbuttons");
+
+  if(buttons.hidden){
+    document.getElementById("bonusbuttons").hidden = false;
+    document.getElementById("bonusbuttons").style.opacity = 1;
+    event.composedPath()[0].focus();
+  }
+  else{
+    document.getElementById("bonusbuttons").hidden = true;
+    document.getElementById("bonusbuttons").style.opacity = 0;
+    event.composedPath()[0].blur();
+  }
+
+  if(menumusicsound.paused) menumusicsound.play();
+}
+
+function showbonus(option){
 
   onlyvisible("bonusingamemenu");
 
+  listchoice = option;
   drawfunction = quicktypedraw;
   init = quicktypeinit;
 

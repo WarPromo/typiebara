@@ -2,7 +2,7 @@
 
 let nextdelay = [3000, 5000];
 let timerreduce = 1.09;
-let listchoice = "word5000";
+let listchoice = "English 200";
 
 let timerstart;
 let timerlength;
@@ -141,7 +141,6 @@ function quicktypedraw(deltatime){
       }
 
       if(timerreaction < 0){
-        playertyped = "";
         let deadsoundclone = deadsound.cloneNode(true)
         deadsoundclone.volume = deadsound.volume;
         deadsoundclone.play();
@@ -154,6 +153,8 @@ function quicktypedraw(deltatime){
     drawtimeleft();
     if(gamepaused) drawlevel();
   }
+
+  drawlistchoice();
 
   pressedspace = false;
 
@@ -175,6 +176,17 @@ function drawtimeleft(){
   context.fillRect(canvas.width/2 - fullsize/2 + fullsize * portion, 200, fullsize * (1 - portion), height)
 
 
+}
+
+function drawlistchoice(){
+  let mcx = canvas.width/2;
+  let mcy = 100;
+
+  context.font = "50px Arial";
+  context.textAlign = "center";
+  context.fillStyle = "rgba(255,255,255,0.5)"
+
+  context.fillText(listchoice, mcx, mcy);
 }
 
 function drawtimerrunning(){

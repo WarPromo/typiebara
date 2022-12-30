@@ -1,6 +1,6 @@
 let wordlists = {
 
-  "word200": `the
+  "English 200": `the
 be
 of
 and
@@ -145,7 +145,7 @@ number
 part
 turn
 real`.split("\n"),
-  "word1000":`the
+  "English 1000":`the
 of
 to
 and
@@ -1145,7 +1145,7 @@ quotient
 teeth
 shell
 neck`.split("\n"),
-  "word5000":`abolish
+  "English 5000":`abolish
 abortion
 absence
 absent
@@ -3143,5 +3143,3 @@ yield
 youngster`.split("\n")
 
 }
-
-console.log(wordlists.word5000)

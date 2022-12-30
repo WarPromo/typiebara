@@ -1,21 +1,10 @@
 
 
 
-function initgame(){
-
-  init();
-  initwords();
-
-}
-
 function showgame(){
 
   gamestarted = true;
-
   init();
-  initwords();
-
-
 
 }
 
@@ -54,6 +43,9 @@ function pausegame(){
 
   musicsound.pause();
 
+  console.log(musicsound);
+  console.log("pausing music");
+
   if(menumusicsound.paused){
     menumusicsound.currentTime = 0;
     menumusicsound.play();
@@ -65,7 +57,7 @@ function pausegame(){
 
 let globaldeltatime = 0;
 
-function draw(deltatime){
+function typemazedraw(deltatime){
 
   globaldeltatime = deltatime;
   if(!gamestarted) return;

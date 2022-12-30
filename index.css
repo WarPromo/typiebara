@@ -108,6 +108,15 @@ body{
   transition: all 0.2s;
 }
 
+#bonusingamemenu{
+  position: absolute;
+  display: flex;
+  justify-content:flex-end;
+  width: 100%;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
 .ingamebutton{
   width: 50px;
   height: 50px;
@@ -190,35 +199,40 @@ body{
   filter: Alpha(opacity=100);
   transition: opacity 1s;
   background: #ffffff59;
-
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #tutorialmenu > .menubutton{
   margin-top: 200px;
 }
 
-#tutorial > img{
+.tutorial > img{
   position: relative;
   width: 70%;
-  margin: auto;
 }
 
-#tutorial > p{
-  margin: 15px;
+.tutorial > p{
+  padding: 15px;
   color: #342a2a;
   font-family: system-ui;
+  font-size: 15px;
+  width: 30%;
 }
 
-#tutorial{
+.tutorial{
+  position: relative;
+  margin: 20px;
   border: solid 7px #e3e9e2;
   border-radius: 7px;
 }
 
-#tutorial{
+.tutorial{
   width: 75%;
   display: flex;
   background: #ffffffc9;
-  margin:auto;
+  margin-left:auto;
+  margin-right: auto;
 }
 
 #pausemenu{

@@ -23,6 +23,9 @@ function start(){
   clickabletabbuttons();
   onlyvisible("menu");
 
+  drawfunction = typemazedraw;
+  init = typemazeinit;
+
   showgame();
   pausegame();
 
@@ -32,11 +35,13 @@ function start(){
 }
 
 let lasttime = new Date().getTime();
+let drawfunction;
+let init;
 
 function loop(time){
 
   let newtime = new Date().getTime();
-  draw(newtime - lasttime);
+  drawfunction(newtime - lasttime);
   lasttime = newtime;
   window.requestAnimationFrame(loop);
 

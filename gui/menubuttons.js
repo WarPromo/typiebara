@@ -1,7 +1,7 @@
 
 
 
-let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu","mapmenu"];
+let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu","mapmenu", "bonusingamemenu"];
 let currentvisible = "menu";
 
 
@@ -48,11 +48,28 @@ function menustartgame(){
 
   onlyvisible("ingamemenu");
 
+  drawfunction = typemazedraw;
+  init = typemazeinit;
+
   startgame();
   unpausegame();
 }
 
+function showbonus(){
+
+  onlyvisible("bonusingamemenu");
+
+  drawfunction = quicktypedraw;
+  init = quicktypeinit;
+
+  startgame();
+  unpausegame();
+
+}
+
 function mainmenu(){
+
+  pausegame();
 
   hidetimer = true;
   hidetitle = true;
@@ -62,8 +79,11 @@ function mainmenu(){
 
   onlyvisible("menu")
 
+  drawfunction = typemazedraw;
+  init = typemazeinit;
+
   showgame();
-  pausegame();
+
 
 }
 
@@ -116,7 +136,9 @@ function restartgame(){
   hidetimer = false;
   hidetitle = true;
 
-  onlyvisible("ingamemenu");
+  if(drawfunction == typemazedraw) onlyvisible("ingamemenu");
+  if(drawfunction == quicktypedraw) onlyvisible("bonusingamemenu");
+
   showgame();
   startgame();
 

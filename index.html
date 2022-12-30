@@ -20,6 +20,8 @@
     <script src="./typemaze/typemazeinit.js"></script>
     <script src="./typemaze/typemazepathfind.js"></script>
     <script src="./typemaze/typemazemaps.js"></script>
+    <script src="./typemaze/typemazewordlist.js"></script>
+    <script src="./quicktype/quicktypedraw.js"></script>
 
     <script src="./gui/menubuttons.js"></script>
 
@@ -31,6 +33,7 @@
 
         <div class="menubutton tabbutton" onclick="mapmenu()">Maps</div>
         <div class="menubutton tabbutton" onclick="showtutorial()">Tutorial</div>
+        <div class="menubutton tabbutton" onclick="showbonus()">Bonus</div>
 
       </div>
 
@@ -56,11 +59,24 @@
 
       </div>
 
+      <div id = "bonusingamemenu">
+
+        <div class="ingamebutton tabbutton" onclick="restartgame()">↻</div>
+        <div class="ingamebutton tabbutton" onclick="mainmenu()">⌂</div>
+
+
+      </div>
+
       <div id = "tutorialmenu">
         <div class ="menubutton tabbutton" onclick="backmenu()">Back</div>
-        <div id = "tutorial">
+        <div class = "tutorial">
           <img src="./assets/images/tutorial.gif"></img>
-          <p>To move to a square, type the word of that square, then press <b>space</b>. Make sure to avoid the enemies! <br><br>Tips: Use <b>tab</b> to navigate to a button, and <b>enter</b> to press it<br><br>Use <b>CTRL + Backspace</b> or <b>CTRL + A</b> to delete words</p>
+          <p><b>Type Maze</b><br><br>To move to a square, type the word of that square, then press <b>space</b>. Make sure to avoid the enemies! <br><br>Tips: Use <b>tab</b> to navigate to a button, and <b>enter</b> to press it<br><br>Use <b>CTRL + Backspace</b> or <b>CTRL + A</b> to delete words</p>
+        </div>
+
+        <div class = "tutorial">
+          <img src="./assets/images/bonustutorial.gif"></img>
+          <p><b>Bonus: Quick Type</b><br><br>This is a game about reaction, and muscle memory. <br><br>When you see the word, type it and press <b>space</b>. <br><br>To begin the game, type "ready" then <b>space</b></p>
         </div>
 
       </div>

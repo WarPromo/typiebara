@@ -70,7 +70,7 @@ let baseword = {
 
 
 
-function init(){
+function typemazeinit(){
 
   if(mapindex < 0) mapindex = maplist.length + mapindex;
   mapindex = mapindex % maplist.length;
@@ -97,12 +97,12 @@ function init(){
   musicsound = tocopy.musicsound;
   maptitle = tocopy.name;
 
-
-
   currenttime = [0,new Date().getTime()];
+
+  typemazeinitwords();
 }
 
-function initwords(){
+function typemazeinitwords(){
 
   words = JSON.parse(JSON.stringify(route));
 

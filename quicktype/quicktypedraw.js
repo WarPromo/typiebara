@@ -1,6 +1,7 @@
 
 
-let nextdelay = [3000, 5000];
+let nextdelay = [2500, 5000];
+let levelscreenwait = 1500;
 let timerreduce = 1.09;
 let listchoice = "English 200";
 
@@ -13,6 +14,7 @@ let currentword;
 let levelscreen;
 let readyscreen;
 let currentlevel;
+
 
 let bonusimage = document.createElement("img");
 bonusimage.src = "./assets/images/bonusimage.png";
@@ -55,7 +57,7 @@ function quicktypedraw(deltatime){
 
       playertyped = "";
       readyscreen = false;
-      levelscreen = 2000;
+      levelscreen = levelscreenwait;
       currentlevel++;
 
     }
@@ -119,7 +121,7 @@ function quicktypedraw(deltatime){
           if(playertyped == currentword){
 
             currentlevel++;
-            levelscreen = 2000;
+            levelscreen = levelscreenwait;
 
             timerreaction = "false";
 

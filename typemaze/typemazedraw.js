@@ -177,18 +177,8 @@ function typemazedraw(deltatime){
 
         if(tsx > canvas.width) continue YLOOP;
         if(tey < 0) continue YLOOP;
-        
+        if(tex < 0) continue;
         if(tsy > canvas.height) break YLOOP;
-
-        if( !((
-              (tsx < canvas.width && tsx > 0) ||
-              (tex < canvas.width && tex > 0)
-            ) &&
-            (
-              (tsy < canvas.height && tsy > 0) ||
-              (tey < canvas.height && tey > 0)
-            ))
-          ) continue;
 
         context.fillRect(tsx, tsy, size.width + 4, words[y][x].fontsize + 6);
 

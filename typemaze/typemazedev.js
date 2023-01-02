@@ -1,4 +1,5 @@
 let devmode = false;
+let palettedev = 1;
 
 function moveplayer(){
 
@@ -28,10 +29,20 @@ function sandbox(){
 
   if(dsquarex < 0 || dsquarex >= route[0].length || dsquarey < 0 || dsquarey >= route.length) return;
 
-  route[dsquarey][dsquarex] = 1;
+  route[dsquarey][dsquarex] = palettedev;
 
-  initwords();
+  typemazeinitwords();
 
+}
+
+function clearroute(){
+  for(var a = 0; a < route.length; a++){
+
+    for(var b = 0; b < route[a].length; b++) route[a][b] = 0
+
+  }
+
+  typemazeinitwords()
 }
 
 function copyroute(){

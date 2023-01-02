@@ -75,8 +75,8 @@ function typemazedraw(deltatime){
   context.fillRect(0,0, canvas.width, canvas.height)
 
   let corner = getXY(0,0,player[2],player[3]);
-  let cornerx = corner[0] - (squaresize + squareplus) / 2;
-  let cornery = corner[1] - (squaresize + squareplus) / 2;
+  let cornerx = Math.floor(corner[0] - (squaresize + squareplus) / 2);
+  let cornery = Math.floor(corner[1] - (squaresize + squareplus) / 2);
 
   context.drawImage(backgroundimage,cornerx,cornery, (squaresize+squarespacing)*route[0].length, (squaresize+squarespacing)*route.length);
 
@@ -146,45 +146,57 @@ function typemazedraw(deltatime){
   }
 
 
+  context.fillStyle = "black";
+  context.textAlign = "center";
 
-  for(var y = 0; y < route.length; y++){
+  YLOOP: for(var y = 0; y < route.length; y++){
     for(var x = 0; x < route[y].length; x++){
 
       let dx = x - (route[0].length / 2);
       let dy = y - (route.length / 2);
 
       let mc =  getXY(x,y,player[2],player[3]);
-      let mcx = mc[0];
-      let mcy = mc[1];
+      let mcx = Math.floor(mc[0]);
+      let mcy = Math.floor(mc[1]);
 
       if(words[y][x] != 1){
-        context.fillStyle = "black";
-
-        let mysize = words[y][x].squaresize;
 
         //context.fillRect(mcx - mysize / 2, mcy - mysize / 2, mysize, mysize);
-
-        context.textAlign = "center";
 
         context.font = words[y][x].fontsize + "px Arial";
 
         let size = context.measureText(words[y][x].word);
 
-
-
         context.fillStyle = "rgba(0,0,0,0.2)";
 
 
-        context.fillRect(mcx - size.width / 2 - 2, mcy - words[y][x].fontsize / 2 - 3, size.width + 4, words[y][x].fontsize + 6);
+        let tsx = Math.floor(mcx - size.width / 2 - 2);
+        let tsy = Math.floor(mcy - words[y][x].fontsize / 2 - 3);
+        let tex = tsx + size.width + 4;
+        let tey = tsy + words[y][x].fontsize + 6;
+
+        if(tsx > canvas.width) continue YLOOP;
+        if(tey < 0) continue YLOOP;
+        
+        if(tsy > canvas.height) break YLOOP;
+
+        if( !((
+              (tsx < canvas.width && tsx > 0) ||
+              (tex < canvas.width && tex > 0)
+            ) &&
+            (
+              (tsy < canvas.height && tsy > 0) ||
+              (tey < canvas.height && tey > 0)
+            ))
+          ) continue;
+
+        context.fillRect(tsx, tsy, size.width + 4, words[y][x].fontsize + 6);
 
         context.fillStyle = "white";
         context.fillText(words[y][x].word,mcx,mcy+5);
+
       }
 
-      else{
-        //context.fillStyle = "blue";
-        //context.fillRect(mcx - squaresize / 2, mcy - squaresize / 2, squaresize, squaresize);
-      }
 
 
 

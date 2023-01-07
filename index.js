@@ -6,7 +6,23 @@ let ctrlkey = false;
 let akey = false;
 let highlightmode = false;
 
+
+function gsigninbutton(){
+
+  google.accounts.id.initialize({
+    client_id: "394929769164-bhb0btmf41iptrtbuo4mjhjuv219c6cc.apps.googleusercontent.com",
+    callback: handleCredentialResponse
+  });
+  google.accounts.id.renderButton(
+    document.getElementById("buttonDiv"),
+    { theme: "filled_black", size: "large", shape:"square", type:"icon"}  // customization attributes
+  );
+
+}
+
 function start(){
+
+  console.log("start");
 
   document.addEventListener('keydown', keydown);
   document.addEventListener('keyup', keyup);
@@ -16,9 +32,14 @@ function start(){
   document.addEventListener('mousedown', mousedown);
   document.addEventListener('mouseup', mouseup);
 
-  canvas = document.getElementById("my-canvas")
 
+
+  gsigninbutton();
+
+  canvas = document.getElementById("my-canvas")
   context = canvas.getContext('2d');
+
+  canvas.style.opacity = 1;
 
   clickabletabbuttons();
   onlyvisible("menu");
@@ -30,8 +51,17 @@ function start(){
   pausegame();
 
   window.requestAnimationFrame(loop);
+}
 
-  //setInterval(draw, 1000/60);
+
+function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
 }
 
 let lasttime = new Date().getTime();

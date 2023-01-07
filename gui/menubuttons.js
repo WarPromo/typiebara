@@ -1,8 +1,8 @@
 
 
 
-let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu","mapmenu", "bonusingamemenu", "bonusbuttons"];
-let currentvisible = "menu";
+let menus = ["menu","ingamemenu","deadmenu","tutorialmenu","pausemenu","mapmenu", "bonusingamemenu", "bonusbuttons", "rankmenu"];
+let currentvisible = ["menu"];
 
 
 
@@ -107,12 +107,18 @@ function mainmenu(){
 
 function decrementindex(){
   mapindex--;
+
   showgame();
+  updaterankmenu()
+
 }
 
 function incrementindex(){
   mapindex++;
+
   showgame();
+  updaterankmenu()
+
 }
 
 function mapmenu(){
@@ -135,12 +141,13 @@ function resumegame(){
 
   onlyvisible("ingamemenu");
   unpausegame();
+
 }
 
 
 
 function pausemenu(){
-  if(currentvisible != "ingamemenu") return;
+  if(currentvisible.indexOf("ingamemenu") == -1) return;
 
   hidetimer = false;
   hidetitle = true;
@@ -171,12 +178,52 @@ function showtutorial(){
   onlyvisible("tutorialmenu");
 }
 
+function updaterankmenu(){
+  let me = document.getElementById("rankmenu")
+
+  if(!me.hidden){
+    clearrankings();
+    getrankings();
+  }
+}
+
+function rankmenu(event){
+
+  let me = document.getElementById("rankmenu");
+
+  if(me.hidden){
+    addvisible("rankmenu");
+    updaterankmenu();
+  }
+  else {
+
+    removevisible("rankmenu");
+  }
+
+}
+
 function diedmenu(){
 
   hidetitle = true;
   hidetimer = false;
 
   onlyvisible("deadmenu");
+
+  let publishing = document.getElementsByClassName("publishing")[0];
+  if(profile == null) publishing.hidden = true;
+  else {
+    publishing.hidden = false;
+
+    publishing.style.background = "#1a73e8"
+    //publishing.style.opacity = 1;
+    publishing.style.width = "60px";
+
+    document.getElementById("publishingloading").style.opacity = 1;
+    document.getElementById("publishinglogged").style.opacity = 0;
+
+    postranking(maptitle, currenttime[0]);
+
+  }
 
   let restartbutton = document.getElementsByClassName("restartbutton")[0]
   restartbutton.focus();
@@ -196,12 +243,32 @@ function backmenu(){
 
 function onlyvisible(choice){
 
-  currentvisible = choice;
+  currentvisible = [choice];
   for(let a = 0; a < menus.length; a++){
     let menu = document.getElementById(menus[a]);
     menu.style.opacity = menus[a] == choice ? 1 : 0;
     menu.hidden = menus[a] != choice;
-
   }
+
+}
+
+function showleaderboard(){
+  onlyvisible("mapmenu")
+  rankmenu();
+}
+
+function addvisible(choice){
+  if(currentvisible.indexOf(choice) == -1) currentvisible.push(choice)
+  let el = document.getElementById(choice);
+  el.style.opacity = 1;
+  el.hidden = false;
+}
+
+function removevisible(choice){
+  if(currentvisible.indexOf(choice) != -1) currentvisible.splice(currentvisible.indexOf(choice), 1)
+  let el = document.getElementById(choice);
+  el.style.opacity = 0;
+  el.hidden = true;
+
 
 }

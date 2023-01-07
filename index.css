@@ -24,6 +24,8 @@ body{
   position: absolute;
   z-index: -2;
   -webkit-transform: translateZ(0);
+  transition: all 1.5s;
+  opacity: 0;
 }
 
 #root{
@@ -279,12 +281,19 @@ body{
 
 #mapbuttons{
   position: relative;
-  top: 84%;
+  top: 80%;
   height: 0px;
 }
 
 .mapbutton{
   margin-bottom: 5px;
+  position: relative;
+  bottom: 25px;
+}
+
+.incrementbutton{
+  position: relative;
+  bottom: 23px;
 }
 
 .pausebuttons{
@@ -292,6 +301,222 @@ body{
   top: 40%;
 }
 
+#rankmenu{
+  position: absolute;
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  top: 127px;
+}
+
+#rankbox{
+  overflow-y: scroll;
+  width: 450px;
+  height: 240px;
+  background: rgba(255,255,255,0.75);
+  position: relative;
+  border: solid 7px #e3e9e2;
+  border-right: 0px;
+  opacity: 0.8;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+}
+
+#rankbox:hover{
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+#rankcontainer{
+  position: relative;
+  top: 20px;
+}
+
+.rankrowcontainer{
+  position: relative;
+  height: 57px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.rankrow{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.rankrow{
+  padding: 0px;
+  border: solid 4px rgb(240,240,240);
+  height: 40px;
+  width: 350px;
+  box-shadow: 8px 8px 4px rgba(0,0,0,0.2);
+}
+
+.rankrow > h1{
+  padding-right: 40px;
+  padding-left: 10px;
+  height: 40px;
+  background-color: white;
+  font-family: Helvetica;
+}
+
+.rankrow > h2{
+  background-color: white;
+  height: 40px;
+  width: 80px;
+  padding-left: 10px;
+  font-family: Helvetica;
+  display: flex;
+  align-items: center;
+}
+
+.ranknameimage{
+  display: flex;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  background-color: rgb(240,240,240);
+  overflow: hidden;
+}
+
+.ranknameimage > img{
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.ranknameimage > p{
+  font-family: "Helvetica";
+  font-size: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 125px;
+}
+
+#personalrankbox{
+  width: 450px;
+  height: 70px;
+  border: solid 7px #e3e9e2;
+  background: rgba(255,255,255,0.75);
+  opacity: 0.8;
+  transition: all 0.2s;
+  border-right: 0px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+#personalrankbox:hover{
+  opacity: 1;
+  transition: all 0.2s;
+}
+
 [hidden]{
   display:none !important;
+}
+
+.fullopacity:{
+  opacity: 1 !important;
+}
+
+.notime{
+  font-family: "Helvetica";
+  font-size: 27px;
+  color: black;
+  opacity: 1;
+  font-weight: bold;
+}
+
+.loginbutton{
+  width: 200px;
+  height: 50px;
+  background: rgba(255,255,255,0.55);
+  color:rgba(0,0,0,0.6);
+  border: 5px solid rgba(0,0,0,0.65);
+  border-radius: 15px;
+  margin: auto;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+  font-family:"Gamefont";
+  font-size: 40px;
+}
+
+#signin{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.loginbuttonhover:hover{
+  transition: all 0.2s;
+  opacity: 1;
+  background: rgba(255,255,255,1);
+  color:rgba(0,0,0,1);
+  border: 5px solid rgba(0,0,0,1);
+}
+
+#signin > p{
+  margin-left: 20px;
+  font-size: 30px;
+}
+
+#signin > .loginbuttoncontainer{
+  margin-right: 25px;
+}
+
+#signout{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+#signout > p{
+  margin-left: 10px;
+  font-size: 30px;
+}
+
+#signout > img{
+
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  box-shadow: 5px 3px 5px black;
+
+}
+
+.loginbuttoncontainer{
+  opacity: 1;
+  z-index: 5;
+  position: relative;
+  width: 38px;
+  box-shadow: 5px 3px 5px black;
+}
+
+#loadingdots{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 100px;
+  opacity: 0;
+  transition: all 0.1s;
+}
+
+#publishingloading{
+  width: 40px;
+  height: 40px;
+  opacity: 1;
+  transition: all 0.1s;
+  position: absolute;
+}
+
+#publishinglogged{
+  color: white;
 }

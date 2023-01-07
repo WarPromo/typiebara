@@ -43,9 +43,6 @@ function pausegame(){
 
   musicsound.pause();
 
-  console.log(musicsound);
-  console.log("pausing music");
-
   if(menumusicsound.paused){
     menumusicsound.currentTime = 0;
     menumusicsound.play();
@@ -149,8 +146,17 @@ function typemazedraw(deltatime){
   context.fillStyle = "black";
   context.textAlign = "center";
 
-  YLOOP: for(var y = 0; y < route.length; y++){
-    for(var x = 0; x < route[y].length; x++){
+  let startx = Math.floor( (-canvas.width/2 + (squarespacing + squaresize)/2) / (squarespacing + squaresize) + player[2]);
+  let starty = Math.floor( (-canvas.height/2 + (squarespacing + squaresize)/2) / (squarespacing + squaresize) + player[3]);
+
+  let endx = Math.ceil( (canvas.width/2 + (squarespacing + squaresize)/2) / (squarespacing + squaresize) + player[2]);
+  let endy = Math.ceil( (canvas.height/2 + (squarespacing + squaresize)/2) / (squarespacing + squaresize) + player[3]);
+
+
+
+
+  for(var y = starty; y < route.length && y < endy; y++){
+    for(var x = startx; x < route[y].length && x < endx; x++){
 
       let dx = x - (route[0].length / 2);
       let dy = y - (route.length / 2);
@@ -161,24 +167,16 @@ function typemazedraw(deltatime){
 
       if(words[y][x] != 1){
 
-        //context.fillRect(mcx - mysize / 2, mcy - mysize / 2, mysize, mysize);
-
         context.font = words[y][x].fontsize + "px Arial";
 
         let size = context.measureText(words[y][x].word);
 
         context.fillStyle = "rgba(0,0,0,0.2)";
 
-
         let tsx = Math.floor(mcx - size.width / 2 - 2);
         let tsy = Math.floor(mcy - words[y][x].fontsize / 2 - 3);
         let tex = tsx + size.width + 4;
         let tey = tsy + words[y][x].fontsize + 6;
-
-        if(tsx > canvas.width) continue YLOOP;
-        if(tey < 0) continue YLOOP;
-        if(tex < 0) continue;
-        if(tsy > canvas.height) break YLOOP;
 
         context.fillRect(tsx, tsy, size.width + 4, words[y][x].fontsize + 6);
 
@@ -354,6 +352,7 @@ function drawenemy(enemy){
     let deadsoundclone = deadsound.cloneNode(true)
     deadsoundclone.volume = deadsound.volume;
     deadsoundclone.play();
+
     diedmenu();
 
 

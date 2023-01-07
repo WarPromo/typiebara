@@ -10,15 +10,19 @@
 
       gtag('config', 'G-RHJLSMRWS1', { cookie_flags: 'SameSite=None;Secure' });
     </script>
+    <meta name="google-signin-client_id" content="394929769164-bhb0btmf41iptrtbuo4mjhjuv219c6cc.apps.googleusercontent.com">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta name="description" content="In Typiebara, you can only type to move around, how long can you run away from the enemies?">
+	  <meta name="description" content="In Typiebara, you can only type to move around, how long can you run away from the enemies?">
     <meta content="Typiebara" property="title">
     <meta content="https://img001.prntscr.com/file/img001/LQ2Zo9M2T8y4gQOuekj27g.png" property="og:image">
     <meta content="#66ff66" property="theme-color">
+
+    <link rel="icon" type="image/png" href="/assets/images/player.png">
     <title>Typiebara</title>
   </head>
-  <body onload="start()">
+  <body>
+    <script src="https://accounts.google.com/gsi/client"></script>
     <script src="index.js"></script>
 
     <link rel="stylesheet" type="text/css" href="index.css">
@@ -33,8 +37,15 @@
     <script src="./quicktype/quicktypedraw.js"></script>
 
     <script src="./gui/menubuttons.js"></script>
+    <script src="./gui/rankings.js"></script>
+    <script src="./gui/googlelogin.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", start, false);
+    </script>
 
     <div id="root">
+
       <div id="menu">
 
         <h1>Typiebara</h1>
@@ -42,6 +53,18 @@
 
         <div class="menubutton tabbutton" onclick="mapmenu()">Maps</div>
         <div class="menubutton tabbutton" onclick="showtutorial()">Tutorial</div>
+        <div class="loginbutton tabbutton" onclick="signinbutton()">
+          <div id = "signout" hidden>
+            <p>Logout:</p>
+            <img class='profileimage' src='' referrerpolicy="no-referrer"></img>
+          </div>
+          <div id = "signin">
+            <p>Login:</p>
+            <div class = "loginbuttoncontainer">
+              <div id="buttonDiv"></div>
+            </div>
+          </div>
+        </div>
         <div class="menubutton tabbutton" onclick="showbonusmenu(event)">Bonus</div>
         <div id="bonusbuttons">
           <div class="menubutton tabbutton" onclick="showbonus('English 200')">English 200</div>
@@ -53,14 +76,30 @@
 
       <div id="mapmenu">
         <div id = "mapmenucontainer">
-          <div class="menubutton tabbutton" onclick="decrementindex()">←</div>
+          <div class="menubutton tabbutton incrementbutton" onclick="decrementindex()">←</div>
           <div id = "mapbuttons">
             <div class="menubutton mapbutton tabbutton" onclick="menustartgame()">Start</div>
             <div class ="menubutton mapbutton tabbutton" onclick="backmenu()">Back</div>
+            <div class ="menubutton mapbutton tabbutton" onclick="rankmenu(event)">Ranking</div>
           </div>
-          <div class="menubutton tabbutton" onclick="incrementindex()">→</div>
+          <div class="menubutton tabbutton incrementbutton" onclick="incrementindex()">→</div>
         </div>
 
+
+      </div>
+
+      <div id = "rankmenu">
+        <span>
+          <div id = "rankbox">
+            <div id ="rankcontainer">
+
+            </div>
+            <img src="./assets/images/loadingdots.gif" id="loadingdots">
+          </div>
+
+          <div id = "personalrankbox">
+          </div>
+        </span>
 
       </div>
 
@@ -99,6 +138,10 @@
         <div class="deadbuttons">
           <div class="menubutton tabbutton restartbutton" onclick="restartgame()">Restart</div>
           <div class="menubutton tabbutton" onclick="mainmenu()">Quit</div>
+          <div class="menubutton tabbutton publishing" onclick = "showleaderboard()">
+            <img src="./assets/images/loadingdots.gif" id="publishingloading"></img>
+            <p id = "publishinglogged">Saved</p>
+          </div>
         </div>
 
         <div id="deadmenubackground"></div>

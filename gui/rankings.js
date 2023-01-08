@@ -12,7 +12,7 @@ function postranking(map, time){
 
   if(profile == null) return;
 
-  fetch(`https://Typiebara-Server.warpromo.repl.co/?map=${map}&id=${profile.sub}&time=${time}&imageurl=${profile.picture}&name=${profile.name}`,{
+  fetch(`https://typiebara-server-production.up.railway.app/?map=${map}&id=${profile.sub}&time=${time}&imageurl=${profile.picture}&name=${profile.name}`,{
     method:"POST"
   }).then((res) => {
     return res.text();
@@ -37,7 +37,7 @@ function clearrankings(){
 function getrankings(){
   document.getElementById("loadingdots").style.opacity = 0.75;
   for(var i = 0; i < amount; i++){
-    fetch(`https://Typiebara-Server.warpromo.repl.co/?map=${maptitle}&rank=${i}`).then((res) => {
+    fetch(`https://typiebara-server-production.up.railway.app/?map=${maptitle}&rank=${i}`).then((res) => {
 
       return res.json();
 
@@ -48,7 +48,7 @@ function getrankings(){
   if(profile != null){
 
 
-    fetch(`https://Typiebara-Server.warpromo.repl.co/?map=${maptitle}&id=${profile.sub}`).then((res) => {
+    fetch(`https://typiebara-server-production.up.railway.app/?map=${maptitle}&id=${profile.sub}`).then((res) => {
 
       return res.json();
 

@@ -1,22 +1,23 @@
 function handleCredentialResponse(response) {
   const responsePayload = parseJwt(response.credential);
 
-  profile = responsePayload;
-
-  setsignin();
+  setsignin(responsePayload);
 
 }
 
-function setsignin(){
+function setsignin(profiledetails){
+
+  profile = profiledetails;
 
   let button = document.getElementsByClassName("loginbutton")[0];
+
+  localStorage.setItem("login", JSON.stringify(profile));
 
   document.getElementById("signin").hidden = true;
   document.getElementById("signout").hidden = false;
   document.getElementById("signout").children[1].src = profile.picture;
 
   button.classList.add("loginbuttonhover");
-
 
 }
 

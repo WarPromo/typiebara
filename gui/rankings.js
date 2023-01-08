@@ -139,7 +139,7 @@ function createranking(profile){
 
   let profileimage = document.createElement("img");
   profileimage.src = profile.imageurl;
-  profileimage.referrerpolicy = "no-referrer"
+  profileimage.referrerPolicy = "no-referrer"
 
   let nametext = document.createElement("p");
   nametext.innerHTML = profile.name;

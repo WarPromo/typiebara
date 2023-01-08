@@ -36,6 +36,10 @@ function start(){
 
   gsigninbutton();
 
+  if(localStorage.getItem("login") != null){
+    setsignin(JSON.parse(localStorage.getItem("login")));
+  }
+
   canvas = document.getElementById("my-canvas")
   context = canvas.getContext('2d');
 

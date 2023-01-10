@@ -30,18 +30,18 @@ let fontsizewigglespeed = 0.002;
 let fontsize = 14;
 let moveease = 0.002;
 
-let movesound = [new Audio("./assets/sounds/grass0.wav"),
-                  new Audio("./assets/sounds/grass1.wav"),
-                  new Audio("./assets/sounds/grass2.wav"),
-                  new Audio("./assets/sounds/grass3.wav")]
+let movesound = [new Audio("./assets/sounds/grass0.mp3"),
+                  new Audio("./assets/sounds/grass1.mp3"),
+                  new Audio("./assets/sounds/grass2.mp3"),
+                  new Audio("./assets/sounds/grass3.mp3")]
 
-let nomovesound = [new Audio("./assets/sounds/nope0.wav"),
-                  new Audio("./assets/sounds/nope1.wav")]
+let nomovesound = [new Audio("./assets/sounds/nope0.mp3"),
+                  new Audio("./assets/sounds/nope1.mp3")]
 
-let deadsound = new Audio("./assets/sounds/death.wav");
+let deadsound = new Audio("./assets/sounds/death.mp3");
 deadsound.volume = 0.2;
 
-let menumusicsound = new Audio("./assets/sounds/menumusic.wav")
+let menumusicsound = new Audio("./assets/sounds/menumusic.mp3")
 menumusicsound.volume = 0.08;
 
 let maptitle;

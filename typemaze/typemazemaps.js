@@ -62,7 +62,7 @@ let parkmap = {
   backgroundimage: "./assets/images/background.png",
   playerimage: "./assets/images/player.png",
   enemyimage: "./assets/images/enemy.png",
-  musicsound: "./assets/sounds/music.wav"
+  musicsound: "./assets/sounds/music.mp3"
 
 }
 
@@ -129,7 +129,7 @@ let skymap = {
   backgroundimage: "./assets/images/background1.png",
   playerimage: "./assets/images/player.png",
   enemyimage: "./assets/images/enemy2.png",
-  musicsound: "./assets/sounds/music1.wav"
+  musicsound: "./assets/sounds/music1.mp3"
 
 
 }
@@ -173,7 +173,7 @@ let farmmap = {
   backgroundimage: "./assets/images/background2.png",
   playerimage: "./assets/images/player.png",
   enemyimage: "./assets/images/enemy3.png",
-  musicsound: "./assets/sounds/music2.wav"
+  musicsound: "./assets/sounds/music2.mp3"
 
 
 }
@@ -241,7 +241,7 @@ let monkeymap = {
   backgroundimage: "./assets/images/background3.png",
   playerimage: "./assets/images/player2.png",
   enemyimage: "./assets/images/enemy4.png",
-  musicsound: "./assets/sounds/music3.wav"
+  musicsound: "./assets/sounds/music3.mp3"
 
 }
 
@@ -312,7 +312,7 @@ let bearmap = {
   backgroundimage: "./assets/images/background4.png",
   playerimage: "./assets/images/player3.png",
   enemyimage: "./assets/images/enemy5.png",
-  musicsound: "./assets/sounds/music4.wav"
+  musicsound: "./assets/sounds/music4.mp3"
 
 }
 
@@ -377,10 +377,10 @@ let junglemap = {
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 
 ],
-  backgroundimage: "./assets/images/background5.png",
+  backgroundimage: "./assets/images/background5.jpg",
   playerimage: "./assets/images/player4.png",
   enemyimage: "./assets/images/enemy6.png",
-  musicsound: "./assets/sounds/music5.wav"
+  musicsound: "./assets/sounds/music5.mp3"
 
 }
 

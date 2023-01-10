@@ -41,7 +41,7 @@ function start(){
   }
 
   canvas = document.getElementById("my-canvas")
-  context = canvas.getContext('2d');
+  context = canvas.getContext('2d',{ alpha: false });
 
   canvas.style.opacity = 1;
 

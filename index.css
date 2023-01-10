@@ -21,9 +21,34 @@ body{
 }
 
 #my-canvas{
-  position: absolute;
+  position: relative;
   z-index: -2;
   -webkit-transform: translateZ(0);
+}
+
+#about{
+
+  width: 910px;
+  height: 450px;
+  margin-top: 20px;
+  background-color: #d7ca97;
+  font-family: system-ui;
+  position: relative;
+  left: -5px;
+  border: solid 5px #afa478;
+  box-sizing: border-box;
+  border-radius: 15px;
+  padding-left: 50px;
+
+
+}
+
+#about > h1{
+  margin-bottom:-10px;
+}
+
+#about > p{
+  font-size: 20px;
 }
 
 #root{

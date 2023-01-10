@@ -300,6 +300,48 @@ function drawtitle(){
   context.fillText(maptitle, coord[0], coord[1]);
   context.strokeText(maptitle, coord[0], coord[1]);
 
+  let starwidth = 50;
+  let starsourcewidth = 100;
+
+  let fs = 50;
+
+  context.fillStyle = "white";
+  context.font = fs + "px Arial";
+  context.strokeStyle = "black";
+  context.lineWidth = 1;
+
+  let text = "Difficulty: "
+  let size = context.measureText(text);
+
+  let difficulty = mapdifficulty;
+  let maxstars = 5;
+
+  let difficultyy = coord[1]+60;
+  let totalwidth = size.width + maxstars * starwidth;
+  let textposx = canvas.width / 2 - totalwidth / 2 + size.width / 2;
+  let starx = textposx + size.width/2;
+
+  context.fillText(text, textposx, difficultyy);
+  context.strokeText(text, textposx, difficultyy);
+
+  let stary = difficultyy - fs/2 - starwidth/2 + 5;
+
+  for(var a = 0; a < maxstars; a++){
+
+    context.drawImage(blankstar, starx + a*starwidth, stary, starwidth, starwidth);
+
+  }
+
+  for(var a = 0; a < Math.floor(difficulty); a++){
+    context.drawImage(star, starx + a*starwidth, stary, starwidth, starwidth);
+  }
+
+  let portion = difficulty - Math.floor(difficulty);
+  let portionx = Math.floor(difficulty) * starwidth + starx;
+  context.drawImage(star, 0, 0, starsourcewidth * portion, starsourcewidth, starx + a*starwidth, stary, starwidth * portion, starwidth);
+
+
+
 }
 
 function drawtimer(){

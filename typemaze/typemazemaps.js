@@ -377,7 +377,7 @@ let junglemap = {
 [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 
 ],
-  backgroundimage: "./assets/images/background5.jpg",
+  backgroundimage: "./assets/images/background5.png",
   playerimage: "./assets/images/player4.png",
   enemyimage: "./assets/images/enemy6.png",
   musicsound: "./assets/sounds/music5.mp3"

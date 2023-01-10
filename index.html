@@ -22,10 +22,15 @@
     <title>Typiebara</title>
   </head>
   <body>
-    <script src="https://accounts.google.com/gsi/client"></script>
-    <script src="index.js"></script>
 
     <link rel="stylesheet" type="text/css" href="index.css">
+
+    <div id = "loadingdiv">
+      <img src="./assets/images/loadingdots.gif" id="loadingdotsroot">
+    </div>
+
+    <script src="https://accounts.google.com/gsi/client"></script>
+    <script src="index.js"></script>
 
     <script src="./typemaze/typemazemaps.js"></script>
     <script src="./typemaze/typemazecoord.js"></script>
@@ -162,6 +167,7 @@
 
       <canvas id="my-canvas" width="900px" height="700px"></canvas>
 
+
       <div id="about">
 
         <h1>About this game:</h1>
@@ -180,6 +186,7 @@
 
 
     </div>
+
 
   </body>
 </html>

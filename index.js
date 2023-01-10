@@ -44,7 +44,16 @@ function start(){
   context = canvas.getContext('2d',{ alpha: false });
 
   let root = document.getElementById("root");
-  setTimeout( () => root.style.opacity = 1, 500);
+  let loading = document.getElementById("loadingdiv");
+
+  setTimeout( () => {
+
+
+    root.style.opacity = 1
+    loading.style.opacity = 0;
+
+
+  }, 1300);
 
   clickabletabbuttons();
   onlyvisible("menu");

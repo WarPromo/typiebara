@@ -5,6 +5,7 @@
 
 body{
   background: #e5ddbd;
+  overflow-x: hidden;
 }
 
 *.unselectable {
@@ -26,11 +27,29 @@ body{
   -webkit-transform: translateZ(0);
 }
 
+#loadingdotsroot{
+
+  margin: auto;
+  display: block;
+  width: 10%;
+  position: relative;
+  top: 200px;
+
+}
+
+#loadingdiv{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: all 0.2s;
+}
+
 #about{
 
   width: 910px;
   height: 450px;
-  margin-top: 20px;
+  margin-top: 80px;
   background-color: #d7ca97;
   font-family: system-ui;
   position: relative;

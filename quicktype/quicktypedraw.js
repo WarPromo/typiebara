@@ -19,10 +19,10 @@ let currentlevel;
 let bonusimage = document.createElement("img");
 bonusimage.src = "./assets/images/bonusimage.png";
 
-let gunshotaudio = new Audio("./assets/sounds/gunshot.wav")
-let bonusmusicsound = new Audio("./assets/sounds/bonusmusic.wav");
+let gunshotaudio = new Audio("./assets/sounds/gunshot.mp3")
+let bonusmusicsound = new Audio("./assets/sounds/bonusmusic.mp3");
 bonusmusicsound.volume = 0.1;
-let correctsound = new Audio("./assets/sounds/correct.wav");
+let correctsound = new Audio("./assets/sounds/correct.mp3");
 
 function quicktypeinit(){
 

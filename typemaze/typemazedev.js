@@ -1,5 +1,5 @@
 let devmode = false;
-let palettedev = 1;
+let palettedev = 0;
 
 function moveplayer(){
 

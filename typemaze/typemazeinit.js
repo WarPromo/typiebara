@@ -14,6 +14,9 @@ let mapindex = 0;
 let hidetimer = true;
 let hidetitle = true;
 
+let mirror = [-1,1];
+let anglespeed = [-0.005, 0.003, 0.002, 0, 0.002,0.003,0.005];
+
 let squaresize = 80;
 let squarespacing = 5;
 let imagesize = 90;
@@ -62,7 +65,10 @@ let baseword = {
 
   squaresize: squaresize,
   fontsize: 14,
-  word: ""
+  word: "",
+  scale: 1,
+  angle: 0,
+  anglespeed: 0
 
 
 }
@@ -96,6 +102,9 @@ function typemazeinit(){
 
   musicsound = tocopy.musicsound;
   maptitle = tocopy.name;
+
+  mirror = tocopy.mirror;
+  anglespeed = tocopy.anglespeed;
 
   currenttime = [0,new Date().getTime()];
 
@@ -134,6 +143,10 @@ function typemazeinitwords(){
       let tile = JSON.parse(JSON.stringify(baseword));
 
       tile.word = word;
+      tile.scale = mirror[Math.floor(Math.random()*2)];
+      tile.angle = 0;
+      tile.anglespeed = anglespeed[Math.floor(Math.random()*anglespeed.length)];
+
       words[y][x] = tile;
 
     }

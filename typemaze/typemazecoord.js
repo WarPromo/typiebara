@@ -1,4 +1,14 @@
 
+function getrotXY(x,y,ang){
+
+
+  let pos1 = [x * Math.cos(ang), x * Math.sin(ang)];
+  let pos2 = [y * Math.cos(ang + Math.PI / 2), y * Math.sin(ang + Math.PI / 2)];
+  let pos = [pos1[0]+pos2[0], pos1[1]+pos2[1]];
+
+  return pos;
+  
+}
 
 function getXY(x, y, ox, oy){
 

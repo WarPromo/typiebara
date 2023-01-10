@@ -89,6 +89,7 @@ function typemazedraw(deltatime){
       let base = words[dy + player[1]][dx + player[0]];
 
       if(Math.abs(dy) + Math.abs(dx) == 1){
+
         base.squaresize = base.squaresize + (squaresize+squareplus - base.squaresize) * sizeease;
         base.fontsize = base.fontsize + (fontsize+fontplus - base.fontsize) * fontease;
 
@@ -97,6 +98,10 @@ function typemazedraw(deltatime){
         base.squaresize = base.squaresize + (squaresize - base.squaresize) * sizeease;
         base.fontsize = base.fontsize + (fontsize - base.fontsize) * fontease;
       }
+
+
+
+      base.angle += base.anglespeed * deltatime;
 
 
     }
@@ -155,42 +160,83 @@ function typemazedraw(deltatime){
 
 
 
+  let sameangles = {};
+
   for(var y = starty; y < route.length && y < endy; y++){
     for(var x = startx; x < route[y].length && x < endx; x++){
 
-      let dx = x - (route[0].length / 2);
-      let dy = y - (route.length / 2);
+      let word = words[y][x];
 
-      let mc =  getXY(x,y,player[2],player[3]);
-      let mcx = Math.floor(mc[0]);
-      let mcy = Math.floor(mc[1]);
+      if(word == 1) continue;
 
-      if(words[y][x] != 1){
+      if(words[y][x].scale == -1) word.angle += 0.000001;
+
+      if(word.angle in sameangles){
+        sameangles[word.angle].push([x,y]);
+      }
+      else{
+        sameangles[word.angle] = [words[y][x].scale, [x,y]];
+      }
+
+    }
+  }
+
+  let keys = Object.keys(sameangles);
+
+  function drawwords(targetscale){
+
+    let lastang = 0;
+
+    context.scale(targetscale, 1);
+
+    for(var i = 0; i < keys.length; i++){
+
+      let key = keys[i];
+      let scale = sameangles[key][0];
+
+      if(scale != targetscale) continue;
+
+      let rot = keys[i]/1 - lastang;
+      let ang = keys[i]/1;
+      lastang = ang;
+
+      context.rotate(-rot);
+
+      for(var j = 1; j < sameangles[key].length; j++){
+
+        let x = sameangles[key][j][0];
+        let y = sameangles[key][j][1];
+
+        let mc =  getXY(x,y,player[2],player[3]);
+        let mcx = Math.floor(mc[0]);
+        let mcy = Math.floor(mc[1]);
 
         context.font = words[y][x].fontsize + "px Arial";
 
         let size = context.measureText(words[y][x].word);
 
+        let pos = getrotXY(targetscale*mcx,mcy,ang);
+
+        let tw = size.width + 4;
+        let th = words[y][x].fontsize + 6;
+
         context.fillStyle = "rgba(0,0,0,0.2)";
-
-        let tsx = Math.floor(mcx - size.width / 2 - 2);
-        let tsy = Math.floor(mcy - words[y][x].fontsize / 2 - 3);
-        let tex = tsx + size.width + 4;
-        let tey = tsy + words[y][x].fontsize + 6;
-
-        context.fillRect(tsx, tsy, size.width + 4, words[y][x].fontsize + 6);
+        context.fillRect(pos[0] - tw/2, pos[1] - th/2 - 3, tw, th);
 
         context.fillStyle = "white";
-        context.fillText(words[y][x].word,mcx,mcy+5);
+        context.fillText(words[y][x].word,pos[0],pos[1]);
 
       }
 
 
-
-
     }
+
+    context.rotate(lastang);
+    context.scale(targetscale, 1);
   }
 
+  drawwords(-1);
+  drawwords(1);
 
   player[2] = linearlerp(player[2],player[0],moveease * deltatime);
   player[3] = linearlerp(player[3],player[1],moveease * deltatime);

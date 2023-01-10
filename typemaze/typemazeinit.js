@@ -45,6 +45,7 @@ let menumusicsound = new Audio("./assets/sounds/menumusic.wav")
 menumusicsound.volume = 0.08;
 
 let maptitle;
+let mapdifficulty;
 
 let musicsound;
 let backgroundimage;
@@ -57,8 +58,15 @@ let startmovecooldown;
 let movecooldownrate;
 let spawnrate;
 
+
 let playertyped = "";
 let pressedspace = false;
+
+let star = document.createElement("img");
+star.src = "./assets/images/star.png";
+
+let blankstar = document.createElement("img");
+blankstar.src = "./assets/images/blankstar.png";
 
 let currenttime = [0,new Date().getTime()];
 let baseword = {
@@ -102,6 +110,7 @@ function typemazeinit(){
 
   musicsound = tocopy.musicsound;
   maptitle = tocopy.name;
+  mapdifficulty = tocopy.difficulty;
 
   mirror = tocopy.mirror;
   anglespeed = tocopy.anglespeed;

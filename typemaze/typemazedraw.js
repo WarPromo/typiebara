@@ -171,6 +171,8 @@ function typemazedraw(deltatime){
 
       if(words[y][x].scale == -1) word.angle += 0.000001;
 
+      word.angle = word.angle % (2 * Math.PI);
+
       if(word.angle in sameangles){
         sameangles[word.angle].push([x,y]);
       }

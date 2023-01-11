@@ -136,6 +136,7 @@ function keydown(e){
     if(key == " "){
 
       pressedspace = true;
+      e.preventDefault();
 
     }
 

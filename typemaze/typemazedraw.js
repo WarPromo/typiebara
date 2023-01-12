@@ -1,4 +1,6 @@
+let measuresizes = {
 
+};
 
 
 function showgame(){
@@ -191,6 +193,8 @@ function typemazedraw(deltatime){
 
     context.scale(targetscale, 1);
 
+    console.log(keys.length);
+
     for(var i = 0; i < keys.length; i++){
 
       let key = keys[i];
@@ -215,11 +219,11 @@ function typemazedraw(deltatime){
 
         context.font = words[y][x].fontsize + "px Arial";
 
-        let size = context.measureText(words[y][x].word);
+        let size = cachemeasuretext(words[y][x].word);
 
         let pos = getrotXY(targetscale*mcx,mcy,ang);
 
-        let tw = size.width + 4;
+        let tw = size + 4;
         let th = words[y][x].fontsize + 6;
 
         context.fillStyle = "rgba(0,0,0,0.2)";
@@ -280,7 +284,23 @@ function typemazedraw(deltatime){
 
   drawtimer();
   drawtitle();
+}
 
+function cachemeasuretext(text){
+
+  let size = parseInt(context.font.split(" ")[0].replace("px",""));
+
+  if(text in measuresizes){
+
+    return measuresizes[text][0] * size / measuresizes[text][1];
+
+  }
+  else{
+    let width = context.measureText(text).width;
+    measuresizes[text] = [width, size];
+    console.log("d othis");
+    return width;
+  }
 
 }
 

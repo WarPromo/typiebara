@@ -253,6 +253,8 @@ function onlyvisible(choice){
 }
 
 function showleaderboard(){
+  hidetimer = true;
+  hidetitle = false;
   onlyvisible("mapmenu")
   rankmenu();
 }
